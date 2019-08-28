@@ -1,24 +1,71 @@
-# README
+# Eco-mmunity Backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Backend Technologies:
 
-Things you may want to cover:
+- [Ruby on Rails](https://rubyonrails.org/)
+- [bCrypt](https://rubygems.org/gems/bcrypt/versions/3.1.12)
+- [JSON Wrb Token](https://rubygems.org/gems/jwt)
+- [Fast JSON API](https://github.com/Netflix/fast_jsonapi)
 
-* Ruby version
+## ERD
 
-* System dependencies
+![img](./assets/eco-mmunity_MVP_ERD.png)
 
-* Configuration
+### Closer breakdown of the models:
 
-* Database creation
+```
+hero
+-
+id PK int
+username UNIQUE string
+first_name string
+last_name string
+email UNIQUE string
+password string
 
-* Database initialization
+community
+-
+id PK int
+name UNIQUE string
+description string
+hero_id int FK >- hero.id
 
-* How to run the test suite
+post
+-
+id PK int
+title string
+content string
+hero_id int FK >- hero.id
+community_id int FK >- community.id
 
-* Services (job queues, cache servers, search engines, etc.)
+comment
+-
+id PK int
+content string
+hero_id FK >- hero.id
+post_id FK >- post.id
 
-* Deployment instructions
+starred_communities
+-
+id PK int
+hero_id FK >- hero.id
+community_id FK >- community.id
 
-* ...
+voted_posts
+-
+id PK
+up boolean
+down boolean
+hero_id FK >- hero.id
+post_id FK >- post.id
+
+voted_comments
+-
+id PK
+up boolean
+down boolean
+hero_id FK >- hero.id
+comment_id FK >- comment.id
+```
+
+Created by [Alexander Schelchere](https://www.alexanderschelchere.com)
