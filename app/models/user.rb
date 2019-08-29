@@ -4,4 +4,8 @@ class User < ApplicationRecord
   validates :username, :email, uniqueness: { case_sensitive: false }
   validates :username, length: { in: 2..15 }
   validates :password, length: { minimum: 5 }
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 end
