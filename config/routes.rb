@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
-  resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # create token
+  post "/login", to: "auth#login"
+  # create user AND create token
+  post "/signup", to: "users#create"
+
+  resources :users, only: [:show, :destroy]
 end
