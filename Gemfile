@@ -50,3 +50,4 @@ gem 'fast_jsonapi'
 gem 'jwt'
 
 gem 'dotenv-rails'
+
