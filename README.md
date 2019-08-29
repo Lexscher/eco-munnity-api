@@ -1,5 +1,7 @@
 # Eco-mmunity Backend
 
+__Take a look at the [front-end](https://github.com/Lexscher/eco-mmunity)__
+
 Backend Technologies:
 
 - [Ruby on Rails](https://rubyonrails.org/)
