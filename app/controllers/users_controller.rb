@@ -16,11 +16,7 @@ class UsersController < ApplicationController
 
   def show
     selected_user = User.find(params["id"])
-    if selected_user == current_user
-      render json: current_user
-    else
-      render json: selected_user
-    end
+    render json: selected_user
   end
 
   def destroy
