@@ -14,10 +14,16 @@ piper = User.create(first_name: "Piper", last_name: "McLean", username: "piper",
 nico = User.create(first_name: "Nico", last_name: "DiAngelo", username: "nico", email: "nico@camphalfblood.com", password: "abc123")
 
 # Communities
-
+sea = percy.communities.create(name: "Oceans", description: "A community of aquatic enthusiasts")
+anomalies = saul.communities.create(name: "Anomalies", description: "Strange occurances around the globe")
+animals = frank.communities.create(name: "WildLife", description: "Animal Lovers")
+forests = ghostbird.communities.create(name: "Forests", description: "Care about our forests? This is the place for you!")
+disasters = control.communities.create(name: "Disasters", description: "Events, Preperation and Recovery")
+diseases = piper.communities.create(name: "Diseases", description: "Doing research? Read a news article? Share anything you find here!")
 
 
 # Posts
+
 
 
 
