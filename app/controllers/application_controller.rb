@@ -1,4 +1,5 @@
-coclass ApplicationController < ActionController::API
+class ApplicationController < ActionController::API
+
   # create a new token with the given payload
   def secret
     ENV["JWT_SECRET_KEY"]
@@ -26,5 +27,5 @@ coclass ApplicationController < ActionController::API
   # Current user by way of decoded token's id
   def current_user
 		User.find(decoded_token[0]["user_id"])
-	end
+  end
 end
