@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get  "/profile", to: "users#profile"
   
   resources :users, only: [:show, :destroy]
-  resources :communities, only: [:index, :show]
+  resources :communities
 end
