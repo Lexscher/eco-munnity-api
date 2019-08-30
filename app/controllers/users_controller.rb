@@ -23,6 +23,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    User.destroy(current_user)
+  end
+
   private
 
   def user_params
