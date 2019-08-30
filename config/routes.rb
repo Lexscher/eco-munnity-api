@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   # Get user profile
   get  "/profile", to: "users#profile"
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :destroy]
 end
