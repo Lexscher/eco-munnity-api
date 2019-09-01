@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
 
+    # Join Tables
+    
+
   # Validations
   validates :first_name, :last_name, :username, :email, :password, presence: true
   validates :username, :email, uniqueness: { case_sensitive: false }
