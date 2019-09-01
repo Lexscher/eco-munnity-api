@@ -1,0 +1,2 @@
+class FavoriteCommunitiesController < ApplicationController
+end
