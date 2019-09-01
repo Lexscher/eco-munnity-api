@@ -1,5 +1,7 @@
 class Community < ApplicationRecord
+  # Relationships
   belongs_to :user
+  has_many :posts, dependent: :destroy
 
   # Validations
   validates :name, :description, :user_id, presence: true
