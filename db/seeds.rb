@@ -23,8 +23,11 @@ diseases = piper.communities.create(name: "Diseases", description: "Doing resear
 
 
 # Posts
-
-
+leo_post_on_animals = leo.posts.create(title: "You won't beleive this!", content: "This is the cutest kitten I've ever seen!" , community: animals)
+ghostbird_post_on_disasters = ghostbird.posts.create(title: "The Amazon Rainforests need Your Help!", content: "The wildfires in brazil threatens the existence of the largest rainforest in the world. Please, Read these articles to find out more: \"https://www.cnn.com/2019/08/23/americas/amazon-wildfires-411/index.html\", \"https://www.cnet.com/how-to/amazon-rainforest-fire-whats-happening-now-and-how-you-can-help-update-indigeous-tribes/\". There are plenty of ways we can help!!" , community: disasters)
+ghostbird_post_on_forests = ghostbird.posts.create(title: "The Amazon Rainforests need Your Help!", content: "The wildfires in brazil threatens the existence of the largest rainforest in the world. Please, Read these articles to find out more: \"https://www.cnn.com/2019/08/23/americas/amazon-wildfires-411/index.html\", \"https://www.cnet.com/how-to/amazon-rainforest-fire-whats-happening-now-and-how-you-can-help-update-indigeous-tribes/\". There are plenty of ways we can help!!" , community: forests)
+control_post_on_anomalies = control.posts.create(title: "Something's Not Right...", content: "My co-worker has been acting very strange recently. Does it have anything to do with what's beyond that border? Maybe he was exposed to something? Even then, I've never felt so threatened... Like I've lost control... I'll come back later to keep you guys updated." , community: anomalies)
+frank_post_on_sea = frank.posts.create(title: "We're doing more harm than good...", content: "Pollution is a huge problem! Approximately 71% of the earth's surface is covered by water. The accumulation of plastic debris in the ocean is heavily diminishing the quality of aquatic life. If you don't beleve me, do some research! This article -> \"https://www.pnas.org/content/114/38/9994\" <- is a great place to start!", community: sea)
 
 
 # Comments
