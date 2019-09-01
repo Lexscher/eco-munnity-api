@@ -55,17 +55,23 @@ class CommunitiesController < ApplicationController
   end
 
   def destroy
-    # Find the community
-    community = Community.find(params["id"])
-    # if the user has created the community
-    if community.user = current_user
-      # destroy the community
-      community.destroy
-      # tell the user their item has been destroyed
-      render json: { message: "Successfully deleted #{community.name}",  removed: community}, status: :ok
-    else
-      # tell the user they're not allowed to
-      render json: { message: "Unauthorized"}, status: :unauthorized
+    # if the user is logged in
+    if current_user
+      # Find the community
+      community = Community.find(params["id"])
+      # if the user has created the community
+      if community.user == current_user
+        # destroy the community
+        community.destroy
+        # tell the user their item has been destroyed
+        render json: { message: "Successfully deleted #{community.name}",  removed: community}, status: :ok
+      else
+        # tell the user they're not allowed to
+        render json: { message: "Unauthorized"}, status: :unauthorized
+      end
+    else 
+      # Tell the user they need to log in to do this action
+      render json: { message: "If you'd like to delete a community you must be logged in."}, status: :unauthorized
     end
   end
 
