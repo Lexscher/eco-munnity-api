@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   # Relationships
   has_many :communities
+  # Post user created within a community, NOT a post that belongs to user's community.
+  has_many :posts
 
   # Validations
   validates :first_name, :last_name, :username, :email, :password, presence: true

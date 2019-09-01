@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_30_142457) do
+ActiveRecord::Schema.define(version: 2019_08_30_212242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 2019_08_30_142457) do
     t.index ["user_id"], name: "index_communities_on_user_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.bigint "user_id"
+    t.bigint "community_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["community_id"], name: "index_posts_on_community_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -35,4 +46,6 @@ ActiveRecord::Schema.define(version: 2019_08_30_142457) do
   end
 
   add_foreign_key "communities", "users"
+  add_foreign_key "posts", "communities"
+  add_foreign_key "posts", "users"
 end
