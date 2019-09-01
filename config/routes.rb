@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  resources :comments
   # create token
   post "/login", to: "auth#login"
   # create user AND create token
@@ -11,4 +10,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :destroy]
   resources :communities
   resources :posts
+  resources :comments, only: [:index, :show, :destroy]
+
 end
