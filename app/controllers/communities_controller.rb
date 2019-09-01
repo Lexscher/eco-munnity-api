@@ -10,6 +10,7 @@ class CommunitiesController < ApplicationController
    render json: community, status: :ok
   end
 
+  # Beyond this point, user must be logged in...
   def create
     # If you're logged in
     if current_user
@@ -33,12 +34,18 @@ class CommunitiesController < ApplicationController
     if current_user
       # Find the community
       community = Community.find(params["id"])
-      # if the user has created the community
+      # if the current user is the one that initially created the community
       if community.user == current_user
         # they can update it!
         community.update!(community_params)
-        # show the community
-        render json: community, status: :created
+        # If the community was updated
+        if community.valid?
+          # show the community
+          render json: community, status: :created
+        else
+          # show the errors
+          render json: { errors: community.errors.full_messages }, status: :bad_request
+        end
       else
         render json: { message: "You must be the creator to edit a community!" }, status: :unauthorized
       end
