@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   resources :comments, except: [:update]
   
   # Join Tables
+  resources :joined_communities
 
 end

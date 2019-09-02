@@ -1,0 +1,2 @@
+class JoinedCommunitiesController < ApplicationController
+end
