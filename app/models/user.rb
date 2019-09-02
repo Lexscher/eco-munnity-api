@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
     # Join Tables
   has_many :joined_communities
-  has_many :joinings, through: :joined_communities, source: :community
+  has_many :joined, through: :joined_communities, source: :community
 
   has_many :voted_posts
   has_many :voted, through: :voted_posts, source: :post
