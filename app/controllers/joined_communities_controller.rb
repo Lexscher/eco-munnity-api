@@ -34,10 +34,16 @@ class JoinedCommunitiesController < ApplicationController
     # if there's a user that's logged in
     if current_user
       joined_community = JoinedCommunity.find_by(user_id: current_user.id, community_id: params["community_id"])
-      # destroy the joined_community
-      joined_community.destroy
-      # render
-      render json: { message: "#{current_user.username} has left ../#{joined_community.community.name}"}
+      # If we found the right community
+      if joined_community
+        # destroy the joined_community
+        joined_community.destroy
+        # render
+        render json: { message: "#{current_user.username} has left ../#{joined_community.community.name}"}
+      else
+        # Tell the user something went wrong
+        render json: { message: "Something went wrong!", errors: ["You can't leave a community that you haven't joined.", "You might be trying to leave the wrong community."]}, status: :bad_request
+      end
     else
       # Tell them they need to sign in to leave a community
       render json: { message: "You must be logged in to perform this action!!"}, status: :unauthorized
