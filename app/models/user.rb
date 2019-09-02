@@ -14,6 +14,9 @@ class User < ApplicationRecord
   has_many :voted_posts
   has_many :voted, through: :voted_posts, source: :post
 
+  has_many :voted_comments
+  has_many :votes, through: :voted_comments, source: :comment
+
 
   # Validations
   validates :first_name, :last_name, :username, :email, :password, presence: true
