@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :joined_communities
   has_many :joinings, through: :joined_communities, source: :community
 
+  has_many :voted_posts
+  has_many :voted, through: :voted_posts, source: :post
+
 
   # Validations
   validates :first_name, :last_name, :username, :email, :password, presence: true
