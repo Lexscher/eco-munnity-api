@@ -31,22 +31,22 @@ frank_post_on_sea = frank.posts.create(title: "We're doing more harm than good..
 
 
 # Comments
-# Comments for LEO's post under ../ANIMALS
+  # Comments for LEO's post under ../ANIMALS
 frank.comments.create(content: "Leo... PLEASE LET ME HAVE IT?!", post: leo_post_on_animals)
 
-# Comments for FRANK's post under ../SEA
+  # Comments for FRANK's post under ../SEA
 percy.comments.create(content: "Thank you, @frank! I've been trying to share this news for a while now.", post: frank_post_on_sea)
 frank.comments.create(content: "I know!! That's how I got so invested in doing research.", post: frank_post_on_sea)
 hazel.comments.create(content: "Hey! Do you two wanna organize an awareness walk?", post: frank_post_on_sea)
 frank.comments.create(content: "You bet!!", post: frank_post_on_sea)
 percy.comments.create(content: "That sounds Excellent, Hazel!", post: frank_post_on_sea)
 
-# Comments for GHOSTBIRD's post under ../FORESTS
+  # Comments for GHOSTBIRD's post under ../FORESTS
 ghostbird.comments.create(content: "...You guys???", post: ghostbird_post_on_forests)
 cynthia.comments.create(content: "I know, GB!! Try posting this in ../Disasters? I think that more people are in that community", post: ghostbird_post_on_forests)
 ghostbird.comments.create(content: "That's a good idea cynthia, I'll try that right now!", post: ghostbird_post_on_forests)
 
-# Comments for GHOSTBIRD's post under ../DISASTERS
+  # Comments for GHOSTBIRD's post under ../DISASTERS
 frank.comments.create(content: "This is terrible!!", post: ghostbird_post_on_disasters)
 nico.comments.create(content: "Does anyone know where we can find a list of resources to help out?", post: ghostbird_post_on_disasters)
 piper.comments.create(content: "I'll brb, let me do some research", post: ghostbird_post_on_disasters)
@@ -60,7 +60,7 @@ hazel.comments.create(content: "@percy", post: ghostbird_post_on_disasters)
 percy.comments.create(content: "Woah thanks for tagging me, hazel!", post: ghostbird_post_on_disasters)
 ghostbird.comments.create(content: "Thank you everyone! This really means a lot!", post: ghostbird_post_on_disasters)
 
-# Comments for CONTROL's post under ../ANOMALIES
+  # Comments for CONTROL's post under ../ANOMALIES
 cynthia.comments.create(content: "Yep! It definitely has something to do with what's behind the border.", post: control_post_on_anomalies)
 control.comments.create(content: "Wait, what? How are you so sure?", post: control_post_on_anomalies)
 cynthia.comments.create(content: "It's kind of my fault...", post: control_post_on_anomalies)
@@ -73,8 +73,27 @@ annabeth.comments.create(content: "If she doesn't respond, reach out to me. Mayb
 
 # ------------------
 
-# Favorite_communities
+# Joined Communities
+  # users join ../Anomalies
+control.join_community(anomalies)
+cynthia.join_community(anomalies)
+annabeth.join_community(anomalies)
 
+ # users join ../Disasters
+ frank.join_community(disasters)
+ nico.join_community(disasters)
+ piper.join_community(disasters)
+ ghostbird.join_community(disasters)
+ hazel.join_community(disasters)
+ 
+ # ../Forests
+ cynthia.join_community(forests)
+
+#  ../Animals
+ leo.join_community(animals)
+
+#  ../Sea
+frank.join_community(sea)
 
 # Voted Posts
 

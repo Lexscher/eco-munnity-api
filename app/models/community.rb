@@ -3,6 +3,10 @@ class Community < ApplicationRecord
   belongs_to :user
   has_many :posts, dependent: :destroy
 
+    # Join Tables
+  has_many :joined_communities
+  has_many :joined_by, through: :joined_communities, source: :user
+
   # Validations
   validates :name, :description, :user_id, presence: true
   validates :name, uniqueness: { case_sensitive: false }

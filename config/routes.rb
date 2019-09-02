@@ -11,5 +11,8 @@ Rails.application.routes.draw do
   resources :communities
   resources :posts
   resources :comments, except: [:update]
+  
+  # Join Tables
+  resources :joined_communities, except: [:update]
 
 end

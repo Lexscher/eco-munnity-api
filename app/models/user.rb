@@ -7,6 +7,11 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
 
+    # Join Tables
+  has_many :joined_communities
+  has_many :joinings, through: :joined_communities, source: :community
+
+
   # Validations
   validates :first_name, :last_name, :username, :email, :password, presence: true
   validates :username, :email, uniqueness: { case_sensitive: false }
@@ -15,7 +20,13 @@ class User < ApplicationRecord
   validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/, message: "No special characters, only letters and numbers." }
 
   # custom methods
+  # Full name of the user
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+  
+  # Join a new community
+  def join_community(community)
+    self.joinings << community
   end
 end
