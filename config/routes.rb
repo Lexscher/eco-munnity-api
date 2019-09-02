@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   # Join Tables
   resources :joined_communities, except: [:show, :update]
   resources :voted_posts, except: [:show]
+  resources :voted_comments, except: [:show]
   
 end

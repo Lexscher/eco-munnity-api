@@ -11,8 +11,13 @@ class User < ApplicationRecord
   has_many :joined_communities
   has_many :joined, through: :joined_communities, source: :community
 
+  # For these two groups:
+      # user.voted = [List Of POSTS the user voted on]
   has_many :voted_posts
   has_many :voted, through: :voted_posts, source: :post
+      # user.votes = [List Of COMMENTS the user voted on]
+  has_many :voted_comments
+  has_many :votes, through: :voted_comments, source: :comment
 
 
   # Validations
@@ -28,8 +33,4 @@ class User < ApplicationRecord
     "#{self.first_name} #{self.last_name}"
   end
   
-  # Join a new community
-  def join_community(community)
-    self.joinings << community
-  end
 end
