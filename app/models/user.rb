@@ -20,7 +20,13 @@ class User < ApplicationRecord
   validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/, message: "No special characters, only letters and numbers." }
 
   # custom methods
+  # Full name of the user
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+  
+  # Join a new community
+  def join_community(community)
+    self.joinings << community
   end
 end
