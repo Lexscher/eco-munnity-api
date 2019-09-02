@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :comments, except: [:update]
   
   # Join Tables
-  resources :joined_communities, except: [:update]
-  resources :voted_posts
+  resources :joined_communities, except: [:show, :update]
+  resources :voted_posts, except: [:show]
   
 end
