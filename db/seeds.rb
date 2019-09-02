@@ -97,6 +97,21 @@ frank.join_community(sea)
 
 # Voted Posts
 
+  # Voting on GB's post in ../Disasters
+frank.voted_posts.create(state: true, post: ghostbird_post_on_disasters)
+piper.voted_posts.create(state: true, post: ghostbird_post_on_disasters)
+cynthia.voted_posts.create(state: true, post: ghostbird_post_on_disasters)
+hazel.voted_posts.create(state: true, post: ghostbird_post_on_disasters)
+hazel.voted_posts.create(state: true, post: ghostbird_post_on_disasters)
+nico.voted_posts.create(state: true, post: ghostbird_post_on_disasters)
+
+  # Voting on GB's post in ../Disasters
+cynthia.voted_posts.create(state: false, post: control_post_on_anomalies)
+annabeth.voted_posts.create(state: true, post: control_post_on_anomalies)
+
+  # Voting on GB's post in ../SEA
+percy.voted_posts.create(state: true, post: frank_post_on_sea)
+hazel.voted_posts.create(state: true, post: frank_post_on_sea)
 
 # voted Comments
 
