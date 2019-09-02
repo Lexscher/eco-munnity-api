@@ -4,7 +4,7 @@ class JoinedCommunitiesController < ApplicationController
     # if there's a user that's logged in
     if current_user
       # Show the user the communities they've joined
-      render json: current_user.joined_communities, status: :ok
+      render json: current_user.joined, status: :ok
     else
       # Tell them they need to sign in to see the communities they've joined
       render json: { message: "You must be logged in to perform this action!!"}, status: :unauthorized
@@ -14,10 +14,8 @@ class JoinedCommunitiesController < ApplicationController
   def create
     # if there's a user that's logged in
     if current_user
-      # grab community
-      community = Community.find(params["community_id"])
       # create a joined community
-      jc = current_user.joined_communities.create(community: community)
+      jc = current_user.joined_communities.create(joined_community_params)
       # if it was joined successfully
       if jc.valid?
         # tell the user
@@ -35,20 +33,21 @@ class JoinedCommunitiesController < ApplicationController
   def destroy
     # if there's a user that's logged in
     if current_user
-      joined_community = JoinedCommunity.find(params["id"])
-      # If this joined community belongs to the user
-      if current_user == joined_community.user
-        # destroy the joined_community
-        joined_community.destroy
-        render json: { message: "#{current_user.username} has left ../#{joined_community.community.name}"}
-      else
-        # Tell the user they can't leave a community for another user
-        render json: { message: "You can't leave a community for another user."}, status: :unauthorized
-      end
+      joined_community = JoinedCommunity.find_by(user_id: current_user.id, community_id: params["community_id"])
+      # destroy the joined_community
+      joined_community.destroy
+      # render
+      render json: { message: "#{current_user.username} has left ../#{joined_community.community.name}"}
     else
       # Tell them they need to sign in to leave a community
       render json: { message: "You must be logged in to perform this action!!"}, status: :unauthorized
     end
+  end
+
+  private
+
+  def joined_community_params
+    params.permit(:community_id)
   end
 
 end
