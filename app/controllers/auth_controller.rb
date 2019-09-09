@@ -8,10 +8,10 @@ class AuthController < ApplicationController
     # If they're authenticated
     if is_authenticated
       # return the user json
-      render json: { token: encode_token(user_payload(user)), user_info: user }
+      render json: { token: encode_token(user_payload(user)), user: user }
     else
       # send an error message
-      render json: { error: "Sorry!! Wrong username and password combination.", message: "No soup for you!" }
+      render json: { errors: "Sorry!! Wrong username and password combination.", message: "No soup for you!" }
     end
   end
 end

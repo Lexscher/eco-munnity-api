@@ -4,19 +4,19 @@ class UsersController < ApplicationController
   def create
     user = User.create(user_params)
     if user.valid?
-      render json: { token: encode_token(user_payload(user)), user_info: user }
+      render json: { token: encode_token(user_payload(user)), user: user }
     else
       render json: { errors: user.errors.full_messages }, status: :not_acceptable
     end
   end
 
   def profile
-    render json: current_user
+    render json: { user: current_user }
   end
 
   def show
-    selected_user = User.find(params["id"])
-    render json: selected_user
+    user = User.find(params["username"])
+    render json: user
   end
 
   def destroy
