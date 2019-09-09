@@ -2,19 +2,14 @@ class PostSerializer
   include FastJsonapi::ObjectSerializer
   attributes :title, :content
 
-  belongs_to :community
-  belongs_to :user
+  attribute :user do |post| post.user end
 
-  attribute :comments do |post|
-    post.comments
-  end
+  attribute :community do |post| post.community end
 
-  attribute :votes do |post|
-    post.voted_posts
-  end
+  attribute :comments do |post| post.comments end
 
-  attribute :voters do |post|
-    post.voted_by
-  end
+  attribute :votes do |post| post.voted_posts end
+
+  attribute :voters do |post| post.voted_by end
 
 end
