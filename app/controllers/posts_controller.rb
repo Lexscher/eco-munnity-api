@@ -2,12 +2,12 @@ class PostsController < ApplicationController
 
   def index
     posts = Post.all
-    render json: posts, status: :ok
+    render json: PostSerializer.new(posts), status: :ok
   end
 
   def show
     post = Post.find(params["id"])
-    render json: post, status: :ok
+    render json: PostSerializer.new(posts), status: :ok
   end
 
   # Beyond this point, user must be logged in...
