@@ -3,14 +3,14 @@ class CommentsController < ApplicationController
     # find all the comments
     comments = Comment.all
     # render all comments
-    render json: CommentSerializer(comments), status: :ok
+    render json: CommentSerializer.new(comments), status: :ok
   end
 
   def show
     # find one comment
     comment = Comment.find(params["id"])
     # render comment
-    render json: CommentSerializer(comments), status: :ok
+    render json: CommentSerializer.new(comments), status: :ok
   end
 
   # Beyond this point, user must be logged in...
