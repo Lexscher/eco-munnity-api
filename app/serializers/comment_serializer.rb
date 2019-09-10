@@ -9,4 +9,8 @@ class CommentSerializer
   attribute :votes do |comment| comment.voted_comments end
 
   attribute :voters do |comment| comment.voted_by end
+
+  attribute :created do |comment| comment.created_at end
+    
+  attribute :updated do |comment| comment.updated_at end
 end
