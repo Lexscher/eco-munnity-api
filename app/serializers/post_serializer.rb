@@ -12,4 +12,8 @@ class PostSerializer
 
   attribute :voters do |post| post.voted_by end
 
+  attribute :created do |post| post.created_at end
+    
+  attribute :updated do |post| post.updated_at end
+
 end
