@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
       # If the comment was made
       if comment.valid?
         # show that comment
-        render json: comment, status: :ok
+        render json: CommentSerializer.new(comment), status: :ok
       else
         # Tell the user about the errors
         render json: { errors: comment.errors.full_messages }, status: :bad_request
