@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 
   def show
     post = Post.find(params["id"])
-    render json: PostSerializer.new(posts), status: :ok
+    render json: PostSerializer.new(post), status: :ok
   end
 
   # Beyond this point, user must be logged in...
