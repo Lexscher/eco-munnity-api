@@ -33,6 +33,7 @@ frank_post_on_sea = frank.posts.create(title: "We're doing more harm than good..
 # Comments
   # Comments for LEO's post under ../ANIMALS
 comment1 = frank.comments.create(content: "Leo... PLEASE LET ME HAVE IT?!", post: leo_post_on_animals)
+comment1b = jason.comments.create(content: "Uh... Frank? You haven't seen it yet...", post: leo_post_on_animals)
 
   # Comments for FRANK's post under ../SEA
 comment2 = percy.comments.create(content: "Thank you, @frank! I've been trying to share this news for a while now.", post: frank_post_on_sea)
