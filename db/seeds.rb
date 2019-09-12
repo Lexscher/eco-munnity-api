@@ -16,7 +16,7 @@ nico = User.create(first_name: "Nico", last_name: "DiAngelo", username: "nico", 
 # Communities
 sea = percy.communities.create(name: "Oceans", description: "A community of aquatic enthusiasts")
 anomalies = saul.communities.create(name: "Anomalies", description: "Strange occurances around the globe")
-animals = frank.communities.create(name: "WildLife", description: "Animal Lovers")
+animals = frank.communities.create(name: "Animals", description: "Animal Lovers")
 forests = ghostbird.communities.create(name: "Forests", description: "Care about our forests? This is the place for you!")
 disasters = control.communities.create(name: "Disasters", description: "Events, Preperation and Recovery")
 diseases = piper.communities.create(name: "Diseases", description: "Doing research? Read a news article? Share anything you find here!")
@@ -33,6 +33,7 @@ frank_post_on_sea = frank.posts.create(title: "We're doing more harm than good..
 # Comments
   # Comments for LEO's post under ../ANIMALS
 comment1 = frank.comments.create(content: "Leo... PLEASE LET ME HAVE IT?!", post: leo_post_on_animals)
+comment1b = jason.comments.create(content: "Uh... Frank? You haven't seen it yet...", post: leo_post_on_animals)
 
   # Comments for FRANK's post under ../SEA
 comment2 = percy.comments.create(content: "Thank you, @frank! I've been trying to share this news for a while now.", post: frank_post_on_sea)
