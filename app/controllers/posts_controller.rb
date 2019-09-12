@@ -19,7 +19,7 @@ class PostsController < ApplicationController
       # If the post was created successfully
       if post.valid?
         # render the post
-        render json: post, status: :ok
+        render json: PostSerializer.new(post), status: :ok
       else
         # Show the errors
         render json: { errors: post.errors.full_messages }, status: :bad_request
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
         # If the post was updated
         if post.valid?
         # render that updated post
-        render json: post, status: :ok
+        render json: PostSerializer.new(post), status: :ok
         else
           # Tell the user that there were problems editing the post
           render json: { errors: post.errors.full_messages }, status: :bad_request
