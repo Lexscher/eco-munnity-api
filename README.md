@@ -6,7 +6,7 @@ Backend Technologies:
 
 - [Ruby on Rails](https://rubyonrails.org/)
 - [bCrypt](https://rubygems.org/gems/bcrypt/versions/3.1.12)
-- [JSON Wrb Token](https://rubygems.org/gems/jwt)
+- [JSON Web Token](https://rubygems.org/gems/jwt)
 - [Fast JSON API](https://github.com/Netflix/fast_jsonapi)
 
 ## ERD
